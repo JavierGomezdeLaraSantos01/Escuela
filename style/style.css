@@ -1,0 +1,287 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Meriweather';
+    src: url('../fonts/Merriweather/Merriweather-Regular.ttf');
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+    background-color: #A2D2FF;
+    max-height: 3rem;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+.header__logo{
+    width: auto;
+    height: 3rem;
+    padding: 0 0.5rem;
+}
+
+.header__ul{
+   list-style: none; 
+   display: flex;
+}
+
+.header__ul__elemento{
+    padding: 0 1rem;
+}
+
+/* Esta clase es para el menu hamburguesa que se activará o
+desactivará dependiendo del tamaño de la pantalla */
+
+.header__ul__elemento--esconder{
+    display: none;
+}
+
+
+@media screen and (max-width:600px) {
+
+    .header__ul__elemento{
+        display: none;
+    }
+
+    .header__ul__elemento--esconder{
+        display: block;
+    }
+    
+}
+
+
+.header__ul__elemento--texto{
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+    font-family: meriweather;
+}
+.header__ul__elemento--texto:hover{
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+
+
+.overlay{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    background-color: rgba(29, 17, 84, 0.6);
+    overflow-x: hidden;
+    transition: .5s;
+}
+.overlay__content{
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 1.8rem;
+}
+
+.overlay__content__link{
+    padding: 0.5rem;
+    text-decoration: none;
+    font-size: 2rem;
+    color: rgb(216, 216, 216);
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay__content__link:hover{
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+/* Empieza el css de la parte del main, es decir de la parte principal de la página */
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.heroImage{
+    background-image: linear-gradient(rgba(0,0,0,0.5) ,rgba(0,0,0,0.5)),url('../img/nino\ corriendo.jpg');
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heroImage__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: Montserrat;
+}
+
+.heroImage__content__titulo{
+    width: fit-content;
+    padding: 1rem;
+    font-size: 5rem;
+    text-shadow: #000000 3px 3px;
+}
+
+.heroImage__content__subtitulo{
+    text-shadow: #000000 3px 3px;
+    padding: 1rem;
+    font-size: 3.5rem;
+    border-bottom: 4px solid rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+.diversidad{
+    display: flex;
+    padding: 3rem;
+    justify-content: space-around;
+}
+.diversidad__imagen{
+    width: 60%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: #D38D5F 5px 5px;
+    border: 1px solid #E89B69;
+    filter: grayscale(1);
+    transition: 1s;
+}
+.diversidad__imagen:hover{
+    filter: grayscale(0);
+    margin-bottom: 0.5rem;
+}
+.diversidad__texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    font-family: Roboto;
+}
+
+.diversidad__texto__titulo{
+    font-size: 3rem;
+    text-align: center;
+}
+.diversidad__texto__contenido{
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width:780px) {
+    .diversidad{
+        flex-direction: column;
+        align-items: center;
+    }
+    .diversidad__imagen{
+        width: 100%;
+        height: 30rem;
+    }
+    .diversidad__texto{
+        align-items: baseline;
+        width: 100%;
+    }
+}
+.tabs{
+    padding: 1rem;
+}
+.tabs__tab{
+    overflow: hidden;
+    border-bottom: 1px solid black;
+    padding-bottom: 0.3rem;
+}
+.tabs__tab__tablink{
+    background-color: #E89B69;
+    float: left;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 1rem;
+    border: 1px solid black;
+    margin: 0 0.1rem;
+}
+.tabs__tab__tablink:hover{
+    background-color: #D38D5F;
+}
+.active{
+    cursor: default;
+    background-color: #D38D5F;
+}
+.tabs__tabcontent{
+    display: none;
+    padding: .5rem .7rem;
+    border: 2px solid black;
+    border-top: none;
+    text-align: center;
+}
+
+.tabs__tabcontent__titulo{
+    font-size: 2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-bottom: #000000 1px solid;
+    background-color: #aad6ff;
+}
+.tabs__tabcontent__cuerpo{
+    font-size: 1.2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.tabs__tabcontent__link{
+    background-color: #FFAB73;
+    padding: 0.4rem 2rem;
+    border: 1px solid black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    color: #000000;
+    transition: 0.5s;
+}
+.tabs__tabcontent__link:hover{
+    border-radius: 1rem;
+    color: white;
+    background-color: #A2D2FF;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: #b2daff;
+    padding-top: 0.5rem;
+}
+
+.footer__copy{
+    display: flex;
+    align-items: center;
+    font-size: large;
+}
+.footer_rrss{
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    align-items: center;
+}
+.fa-brands{
+    margin:1rem;
+}
